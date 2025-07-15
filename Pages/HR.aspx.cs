@@ -61,10 +61,6 @@ namespace MASTER.Pages
                     FeedbackLabel.CssClass = "error-message";
                     FeedbackLabel.Visible = true;
                     return;
-                } else
-                {
-                    FeedbackLabel1.Text = "Done";
-                    FeedbackLabel1.CssClass = "done-message";
                 }
 
                 string query = "insert into Users (User_ID, Password, Resistration_Date, Role_ID) values (@id, @pass, GETDATE(), @role_id)";
@@ -138,8 +134,6 @@ namespace MASTER.Pages
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
-                FeedbackLabel1.Text = "Done";
-                FeedbackLabel1.CssClass = "done-message";
             }
         }
         protected void Cancel_PI_Click(object sender, EventArgs e)

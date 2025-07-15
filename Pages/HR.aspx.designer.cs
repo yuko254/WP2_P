@@ -15,13 +15,13 @@ namespace MASTER.Pages
     {
 
         /// <summary>
-        /// pnlCreateAccount control.
+        /// pnl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCreateAccount;
+        protected global::System.Web.UI.WebControls.Panel pnl1;
 
         /// <summary>
         /// Label12 control.
@@ -132,13 +132,13 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
-        /// pnlAddPI control.
+        /// pnl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAddPI;
+        protected global::System.Web.UI.WebControls.Panel pnl2;
 
         /// <summary>
         /// Label1 control.
@@ -373,14 +373,5 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Cancel_PI;
-
-        /// <summary>
-        /// FeedbackLabel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FeedbackLabel1;
     }
 }

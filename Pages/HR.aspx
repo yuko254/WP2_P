@@ -18,17 +18,17 @@
         </div>
         <div class="menu-option">
             <i class="fa fa-male button-icon"></i>
-            <p class="button-box">Profile</p>
+            <p class="button-box" id="3">Profile</p>
         </div>
         <div class="menu-option">
             <i class="fa fa-trash button-icon"></i>
-            <p class="button-box">Profile</p>
+            <p class="button-box" id="4">Profile</p>
         </div>
     </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="pnlCreateAccount" runat="server" style="display:block;">
+    <asp:Panel ID="pnl1" runat="server" style="display:block;">
         <h1>Create new account</h1>
         <asp:Label ID="Label12" runat="server" Text="account ID :"></asp:Label>
         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="personal_info_id" DataTextField="PI_ID" DataValueField="PI_ID">
@@ -49,7 +49,7 @@
         <br />
     </asp:Panel>
 
-    <asp:Panel ID="pnlAddPI" runat="server" style="display:none;">
+    <asp:Panel ID="pnl2" runat="server" style="display:none;">
         <h1>Add personal information of a potential hire</h1>
         <asp:Label ID="Label1" runat="server" Text="First Name:" />
         <asp:TextBox ID="txtFirstName" runat="server" /><br />
@@ -91,27 +91,5 @@
         <asp:Button ID="Submit_PI" runat="server" Text="Submit" OnClick="Submit_PI_Click" />
         <asp:Button ID="Cancel_PI" runat="server" Text="Cancel" OnClick="Cancel_PI_Click" />
     </asp:Panel>
-    <asp:Label ID="FeedbackLabel1" runat="server" Text=""></asp:Label>
-    <script>
-        const creatAccount = document.getElementById('<%= pnlCreateAccount.ClientID %>');
-        const addPI = document.getElementById('<%= pnlAddPI.ClientID %>');
-        const doneMsg = document.getElementById('<%= FeedbackLabel1.ClientID %>');
-        document.addEventListener("NavOptionClicked", e => {
-            if (doneMsg.classList.contains("done-message")) { 
-                doneMsg.classList.remove("done-message");
-                doneMsg.innerText = "";
-            }
-            const id = e.detail.id;
-
-            creatAccount.style.display = 'none';
-            addPI.style.display = 'none';
-
-            if (id === "1") {
-                creatAccount.style.display = 'block';
-            } else if (id === "2") {
-                addPI.style.display = 'block';
-            }
-        });
-    </script>
 </asp:Content>
 

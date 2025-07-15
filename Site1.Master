@@ -48,6 +48,24 @@
                 }, 500 + index * 100);
             });
         };
+
+        const panelElements = Array.from(document.querySelectorAll('.main-content *'))
+            .filter(el => /pnl\d+$/.test(el.id)) // Match IDs ending in pnl followed by digits
+            .sort((a, b) => {
+                const numA = parseInt(a.id.match(/pnl(\d+)$/)[1]); // extract number after 'pnl'
+                const numB = parseInt(b.id.match(/pnl(\d+)$/)[1]);
+                return numA - numB;
+            });
+        document.addEventListener("NavOptionClicked", e => {
+            const id = e.detail.id;
+            panelElements.forEach(panel => {
+                if (panel) {
+                    panel.style.display = 'none';
+                }
+            });
+            if (panelElements[id - 1])
+                panelElements[id - 1].style.display = 'block';
+        });
     </script>
 </body>
 </html>
