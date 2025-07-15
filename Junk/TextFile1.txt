@@ -1,0 +1,23 @@
+﻿<asp:Content ID="Content2" ContentPlaceHolderID="SidebarMenu" runat="server">
+    <div class="sidebar-top menu">
+        <h1>hahahaha</h1>
+    </div>
+    <div class="menu">
+        <div class="menu-option">
+            <i class="fa fa-home button-icon"></i>
+            <p class="button-box nav-option-clicked">Profile</p>
+        </div>
+        <div class="menu-option">
+            <i class="fa fa-bars button-icon"></i>
+            <p class="button-box">Profile</p>
+        </div>
+        <div class="menu-option">
+            <i class="fa fa-male button-icon"></i>
+            <p class="button-box">Profile</p>
+        </div>
+        <div class="menu-option">
+            <i class="fa fa-trash button-icon"></i>
+            <p class="button-box">Profile</p>
+        </div>
+    </div>
+</asp:Content>

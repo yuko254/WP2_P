@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="MASTER.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="CSS/master.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="sidebar">
+            <asp:ContentPlaceHolder ID="SidebarMenu" runat="server" />
+        </nav>
+        <script>
+            let nav_options = document.querySelectorAll(".button-box");
+            var clicked_option = document.querySelector(".button-box.nav-option-clicked")
+            nav_options.forEach(option => {
+                option.addEventListener("click", event => {
+                    if (clicked_option)
+                        clicked_option.classList.remove("nav-option-clicked");
+                    clicked_option = event.target;
+                    clicked_option.classList.add("nav-option-clicked");
+
+                    // trigger a custom event
+                    document.dispatchEvent(new CustomEvent("NavOptionClicked", {
+                        detail: { id: window.clicked_option.id }
+                    }));
+                });
+            });
+        </script>
+        <div class="main-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </div>
+    </form>
+    <script>  
+        window.onload = function handleload() {
+            document.querySelector(".main-content").classList.add("loaded");
+            document.querySelector(".sidebar").classList.add("loaded");
+            document.querySelector(".sidebar-top").classList.add("loaded");
+
+            let options = document.querySelectorAll(".menu-option");
+            options.forEach((option, index) => {
+                setTimeout(() => {
+                    option.classList.add("loaded");
+                }, 500 + index * 100);
+            });
+        };
+    </script>
+</body>
+</html>
