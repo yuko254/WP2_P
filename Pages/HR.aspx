@@ -106,9 +106,6 @@
             let arr = new Array(10).fill('').map(() => allowedChars[Math.floor(Math.random() * allowedChars.length)]);
             RandPass.value = arr.join('');
         };
-        function clearForm() {
-            document.querySelector("#form1").reset(); // Replace 'form1' with your actual form ID
-        }
     </script>
 </asp:Content>
 

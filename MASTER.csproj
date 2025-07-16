@@ -70,6 +70,7 @@
     <Content Include="CSS\1.jpg" />
     <Content Include="CSS\3.jpg" />
     <Content Include="CSS\5.jpg" />
+    <Content Include="CSS\HR.css" />
     <Content Include="CSS\login.css" />
     <Content Include="CSS\master.css" />
     <Content Include="Junk\TextFile1.txt" />

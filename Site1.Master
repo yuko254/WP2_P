@@ -49,6 +49,10 @@
             });
         };
 
+        function clearForm() {
+            document.querySelector("#form1").reset();
+        }
+
         const panelElements = Array.from(document.querySelectorAll('.main-content *'))
             .filter(el => /pnl\d+$/.test(el.id)) // Match IDs ending in pnl followed by digits
             .sort((a, b) => {
