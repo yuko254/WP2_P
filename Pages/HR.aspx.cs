@@ -16,20 +16,6 @@ namespace MASTER.Pages
 
         }
 
-        protected void Button1_Click1(object sender, EventArgs e)
-        {
-            // Generate a random 10-character alphanumeric password
-            string allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            Random rnd = new Random();
-            char[] passwordChars = new char[10];
-
-            for (int i = 0; i < passwordChars.Length; i++)
-                passwordChars[i] = allowedChars[rnd.Next(allowedChars.Length)];
-            string randomPassword = new string(passwordChars);
-
-            TextBox1.Text = randomPassword;
-        }
-
         private bool ValidateID(int id, SqlConnection conn)
         {
             string query = @"SELECT User_ID FROM Users 
@@ -47,9 +33,9 @@ namespace MASTER.Pages
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            int account_id = int.Parse(DropDownList1.SelectedItem.Value);
-            string account_password = TextBox1.Text;
-            int accountRole_id = int.Parse(DropDownList2.SelectedItem.Value);
+            int account_id = int.Parse(account_ID_DDL.SelectedItem.Value);
+            string account_password = account_Pass_Input.Text;
+            int accountRole_id = int.Parse(account_Role_DDL.SelectedItem.Value);
             string connStr = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -76,28 +62,22 @@ namespace MASTER.Pages
                 conn.Close();
             }
         }
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            TextBox1.Text = string.Empty;
-            DropDownList1.ClearSelection();
-            DropDownList2.ClearSelection();
-        }
 
         protected void Submit_PI_Click(object sender, EventArgs e)
         {
-            string first_name = txtFirstName.Text;
-            string last_name = txtLastName.Text;
-            string father_name = txtFatherFirstName.Text;
-            string mother_name = txtMotherFullName.Text;
-            string place_of_birth = txtPlaceOfBirth.Text;
-            DateTime dob = DateTime.Parse(txtDateOfBirth.Text);
-            long national_number = long.Parse(txtNationalNumber.Text);
+            string first_name = First_Name_Input.Text;
+            string last_name = Last_Name_Input.Text;
+            string father_name = Father_First_Name_Input.Text;
+            string mother_name = Mother_First_Name_Input.Text;
+            string place_of_birth = Place_of_Birth_Input.Text;
+            DateTime dob = DateTime.Parse(Date_of_Birth_Input.Text);
+            long national_number = long.Parse(National_Number_Input.Text);
 
-            string personal_picture = filePersonalPicture.HasFile ? filePersonalPicture.FileName : null;
-            string cv_file = fileCV.HasFile ? fileCV.FileName : null;
+            string personal_picture = Personal_Picture_Input.HasFile ? Personal_Picture_Input.FileName : null;
+            string cv_file = CV_file_Input.HasFile ? CV_file_Input.FileName : null;
 
-            int dept_id = int.Parse(ddlDepartment.SelectedItem.Value);
-            int branch_id = int.Parse(ddlBranch.SelectedItem.Value);
+            int dept_id = int.Parse(Department_DDL.SelectedItem.Value);
+            int branch_id = int.Parse(Branch_DDL.SelectedItem.Value);
 
             string connStr = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
 
@@ -135,18 +115,6 @@ namespace MASTER.Pages
 
                 conn.Close();
             }
-        }
-        protected void Cancel_PI_Click(object sender, EventArgs e)
-        {
-            txtFirstName.Text = string.Empty;
-            txtLastName.Text = string.Empty;
-            txtFatherFirstName.Text = string.Empty;
-            txtMotherFullName.Text = string.Empty;
-            txtPlaceOfBirth.Text = string.Empty;
-            txtDateOfBirth.Text = string.Empty;
-            txtNationalNumber.Text = string.Empty;
-            ddlDepartment.ClearSelection();
-            ddlBranch.ClearSelection();
         }
     }
 }
