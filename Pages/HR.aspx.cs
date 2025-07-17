@@ -31,7 +31,7 @@ namespace MASTER.Pages
                 }
             }
         }
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void Submit_CreateAccount_Click(object sender, EventArgs e)
         {
             int account_id = int.Parse(account_ID_DDL.SelectedItem.Value);
             string account_password = account_Pass_Input.Text;

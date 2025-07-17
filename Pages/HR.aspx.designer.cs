@@ -114,22 +114,22 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.SqlDataSource get_acoount_roles;
 
         /// <summary>
-        /// btnSubmit control.
+        /// Submit_CreateAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button Submit_CreateAccount;
 
         /// <summary>
-        /// btnCancel control.
+        /// Cancel_CreateAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button Cancel_CreateAccount;
 
         /// <summary>
         /// pnl2 control.

@@ -47,8 +47,8 @@
         </asp:DropDownList>
         <asp:SqlDataSource ID="get_acoount_roles" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Role_ID], [Role_Name] FROM [Roles]"></asp:SqlDataSource>
         <br />
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClientClick="clearForm(); return false;" />
+        <asp:Button ID="Submit_CreateAccount" runat="server" Text="Submit" OnClick="Submit_CreateAccount_Click" />
+        <asp:Button ID="Cancel_CreateAccount" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClientClick="clearForm(); return false;" />
         <br />
     </asp:Panel>
 
