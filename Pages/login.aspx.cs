@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -28,12 +29,15 @@ namespace MASTER
             }
         }
 
-        private string GetUserRole(string id, SqlConnection conn)
+        private Dictionary<string, object> GetUserDashboard(string id, SqlConnection conn)
         {
-            string query = @"SELECT Role_Name 
-                     FROM Roles 
-                     JOIN Users ON Roles.Role_ID = Users.Role_ID 
-                     WHERE Users.User_ID = @id";
+            string query = @"
+        SELECT D.Dept_Code, R.Role_Name
+        FROM Users U
+        JOIN Personal_Informations PI ON U.User_ID = PI.PI_ID
+        JOIN Departments D ON PI.Dept_ID = D.Dept_ID
+        JOIN Roles R ON PI.Role_ID = R.Role_ID
+        WHERE U.User_ID = @id";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -41,9 +45,18 @@ namespace MASTER
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    return reader.Read() ? reader["Role_Name"].ToString() : null;
+                    if (reader.Read())
+                    {
+                        var result = new Dictionary<string, object>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            result[reader.GetName(i)] = reader.GetValue(i);
+                        }
+                        return result;
+                    }
                 }
             }
+            return null;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -64,10 +77,10 @@ namespace MASTER
                     return;
                 }
 
-                string role = GetUserRole(id, conn);
-                if (!string.IsNullOrEmpty(role))
+                var dashboard = GetUserDashboard(id, conn);
+                if (dashboard != null && dashboard.Count > 0)
                 {
-                    Response.Redirect($"{role}.aspx");
+                    Response.Redirect($"{dashboard["Dept_Code"]}.aspx");
                 }
                 else
                 {

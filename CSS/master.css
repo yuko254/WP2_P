@@ -26,7 +26,7 @@
 
 body {
     width: auto;
-    height: 100vh;
+    height: auto;
 }
 
 #form1 {
@@ -34,14 +34,13 @@ body {
     height: 100%;
     display: flex;
     flex-direction: row;
-
 }
 
 .sidebar {
     position: sticky;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     flex: 1;
     background: url(6.jpg);
     background-repeat: no-repeat;
@@ -141,6 +140,8 @@ body {
 .main-content {
     visibility:hidden;
     flex: 0;
+    display: flex;
+    flex-direction: column;
 }
 .main-content.loaded {
     visibility: visible;
