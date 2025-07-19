@@ -51,7 +51,10 @@
 
         function clearForm() {
             document.querySelector("#form1").reset();
-        }
+            document.querySelectorAll("legend input").forEach(el => {
+                el.dispatchEvent(new Event("change"));
+            });
+        };
 
         const panelElements = Array.from(document.querySelectorAll('.main-content *'))
             .filter(el => /pnl\d+$/.test(el.id)) // Match IDs ending in pnl followed by digits

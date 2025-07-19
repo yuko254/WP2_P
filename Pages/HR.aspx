@@ -29,7 +29,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="pnl1" runat="server" Style="display: block;">
+    <asp:Panel CssClass="pnl" ID="pnl1" runat="server" Style="display: block;">
         <div class="row">
             <fieldset class="container UserAccount">
                 <legend class="legend-flex">Register a new user account</legend>
@@ -41,7 +41,7 @@
                 <br />
                 <asp:Label ID="account_Pass_label" runat="server" Text="Password : "></asp:Label>
                 <asp:TextBox ID="account_Pass_Input" runat="server" required="required" TextMode="Password" placeholder="Enter password."></asp:TextBox>
-                <asp:Button ID="account_RandPass_Btn" runat="server" Text="generate random password" UseSubmitBehavior="false" OnClientClick="generate_password(); return false;" />
+                <asp:Button CssClass="btn" ID="account_RandPass_Btn" runat="server" Text="generate random password" UseSubmitBehavior="false" OnClientClick="generate_password(); return false;" />
                 <br />
             </fieldset>
 
@@ -109,8 +109,10 @@
                 <asp:Label ID="account_CV_file_label" runat="server" Text="CV File:" />
                 <asp:FileUpload ID="account_CV_file_Input" runat="server" placeholder="Enter CV file" />
         </fieldset>
-        <asp:Button ID="Submit_CreateAccount" runat="server" Text="Submit" OnClick="Submit_CreateAccount_Click" />
-        <asp:Button ID="Cancel_CreateAccount" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClientClick="clearForm(); return false;" />
+        <div class="FormButtuns">
+            <asp:Button CssClass="btn" ID="Submit_CreateAccount" runat="server" Text="Submit" OnClick="Submit_CreateAccount_Click" />
+            <asp:Button CssClass="btn" ID="Cancel_CreateAccount" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClientClick="clearForm(); return false;" />
+        </div>
     </asp:Panel>
 
     <asp:Panel ID="pnl2" runat="server" Style="display: none;"></asp:Panel>

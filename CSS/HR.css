@@ -121,3 +121,40 @@ fieldset {
 .dropdown-options li:hover {
   background-color: #eee;
 }
+
+.btn {
+    padding: 0 5%;
+    margin: 1%;
+    margin-top: 5%;
+    align-self: center;
+    background-color: transparent;
+    width: auto;
+    height: 45px;
+    outline: none;
+    border: 1px solid rgb(255, 106, 0);
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 80ms;
+    transition: box-shadow 0.5s;
+    color: orange;
+}
+.btn:hover {
+    box-shadow: 0 0 10px rgb(255, 106, 0);
+}
+button:active {
+    transform: scale(1.1);
+}
+
+.pnl{
+    display: flex;
+    flex-direction: column;
+}
+.FormButtuns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 5%;
+}
