@@ -1,0 +1,45 @@
+﻿/* 
+    **Note** 
+        ALL NAMES OF CLASSES AND IDS ARE CASE SENSITIVE AND IMPORTANT TO FOLLOW AS IS....
+
+    ////////////////////////////////////////////////////////////
+
+    sidebar usage example : 
+
+        <asp:Content ID="Content2" ContentPlaceHolderID="SidebarMenu" runat="server">
+            <div class="sidebar-top sidebar-menu">
+                <h1>hahahaha</h1>
+            </div>
+            <div class="sidebar-menu">
+                <div class="sidebar-menu-option">
+                    <i class="fa fa-home sidebar-menu-option-icon"></i>
+                    <p class="sidebar-menu-option-btn sidebar-menu-option-clicked" id="1">Option 1</p>
+                </div>
+                <div class="sidebar-menu-option">
+                    <i class="fa fa-home sidebar-menu-option-icon"></i>
+                    <p class="sidebar-menu-option-btn" id="2">Option 2</p>
+                </div>
+                <div class="sidebar-menu-option">
+                    <i class="fa fa-home sidebar-menu-option-icon"></i>
+                    <p class="sidebar-menu-option-btn" id="3">Option 3</p>
+                </div>
+            </div>
+        </asp:Content>
+
+    ////////////////////////////////////////////////////////////
+
+    Sidebar options content toggling example : 
+
+        <asp:Panel ID="pnl1" runat="server" Style="display: block;">
+            // option 1 content //
+        </asp:Panel>
+
+        <asp:Panel ID="pnl2" runat="server" Style="display: none;">
+            // option 2 content //
+        </asp:Panel>
+
+        <asp:Panel ID="pnl3" runat="server" Style="display: none;">
+            // option 3 content //
+        </asp:Panel>
+
+*/

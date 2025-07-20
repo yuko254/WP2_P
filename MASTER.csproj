@@ -70,9 +70,17 @@
     <Content Include="CSS\1.jpg" />
     <Content Include="CSS\3.jpg" />
     <Content Include="CSS\5.jpg" />
-    <Content Include="CSS\HR.css" />
-    <Content Include="CSS\login.css" />
-    <Content Include="CSS\master.css" />
+    <Content Include="Components\animated_input.css" />
+    <Content Include="Components\AnimatedDDL\AnimatedDDL.css" />
+    <Content Include="CSS\HR\HR.css" />
+    <Content Include="CSS\HR\HRLoaded.css" />
+    <Content Include="CSS\Login\login.css" />
+    <Content Include="CSS\Master\Master.css" />
+    <Content Include="CSS\Master\MasterLoaded.css" />
+    <Content Include="JS\MasterLoad.js" />
+    <Content Include="Components\AnimatedDDL\replaceDDLsWithAnimatedDDLs.js" />
+    <Content Include="JS\SidebarHandling.js" />
+    <Content Include="Components\toggleForms.js" />
     <Content Include="Junk\TextFile1.txt" />
     <Content Include="Pages\ADs_Branches.aspx" />
     <Content Include="Pages\HR.aspx" />
@@ -123,6 +131,7 @@
     <Content Include="CSS\4.jpg" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="Site1Master.guides" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,6 +139,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -24,15 +24,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.Panel pnl1;
 
         /// <summary>
-        /// account_Username_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Username_label;
-
-        /// <summary>
         /// account_Username_Input control.
         /// </summary>
         /// <remarks>
@@ -42,15 +33,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_Username_Input;
 
         /// <summary>
-        /// account_Email_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Email_label;
-
-        /// <summary>
         /// account_Email_Input control.
         /// </summary>
         /// <remarks>
@@ -58,15 +40,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox account_Email_Input;
-
-        /// <summary>
-        /// account_Pass_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Pass_label;
 
         /// <summary>
         /// account_Pass_Input control.
@@ -96,15 +69,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.CheckBox Assign_position_check;
 
         /// <summary>
-        /// account_Dept_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Dept_label;
-
-        /// <summary>
         /// account_Dept_DDL control.
         /// </summary>
         /// <remarks>
@@ -123,15 +87,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.SqlDataSource get_departments;
 
         /// <summary>
-        /// account_Role_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Role_label;
-
-        /// <summary>
         /// account_Role_DDL control.
         /// </summary>
         /// <remarks>
@@ -148,15 +103,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource get_roles;
-
-        /// <summary>
-        /// account_Branch_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Branch_label;
 
         /// <summary>
         /// account_Branch_DDL control.
@@ -186,15 +132,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.CheckBox Assign_PI_check;
 
         /// <summary>
-        /// account_First_Name_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_First_Name_label;
-
-        /// <summary>
         /// account_First_Name_Input control.
         /// </summary>
         /// <remarks>
@@ -202,15 +139,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox account_First_Name_Input;
-
-        /// <summary>
-        /// account_Last_Name_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Last_Name_label;
 
         /// <summary>
         /// account_Last_Name_Input control.
@@ -222,15 +150,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_Last_Name_Input;
 
         /// <summary>
-        /// account_Phone_Number_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Phone_Number_label;
-
-        /// <summary>
         /// account_Phone_Number_Input control.
         /// </summary>
         /// <remarks>
@@ -238,15 +157,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox account_Phone_Number_Input;
-
-        /// <summary>
-        /// account_Address_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Address_label;
 
         /// <summary>
         /// account_Address_Input control.
@@ -258,15 +168,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_Address_Input;
 
         /// <summary>
-        /// account_Father_First_Name_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Father_First_Name_label;
-
-        /// <summary>
         /// account_Father_First_Name_Input control.
         /// </summary>
         /// <remarks>
@@ -274,15 +175,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox account_Father_First_Name_Input;
-
-        /// <summary>
-        /// account_Mother_First_Name_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Mother_First_Name_label;
 
         /// <summary>
         /// account_Mother_First_Name_Input control.
@@ -294,15 +186,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_Mother_First_Name_Input;
 
         /// <summary>
-        /// account_Place_of_Birth_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Place_of_Birth_label;
-
-        /// <summary>
         /// account_Place_of_Birth_Input control.
         /// </summary>
         /// <remarks>
@@ -310,15 +193,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox account_Place_of_Birth_Input;
-
-        /// <summary>
-        /// account_Date_of_Birth_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Date_of_Birth_label;
 
         /// <summary>
         /// account_Date_of_Birth_Input control.
@@ -330,15 +204,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_Date_of_Birth_Input;
 
         /// <summary>
-        /// account_National_Number_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_National_Number_label;
-
-        /// <summary>
         /// account_National_Number_Input control.
         /// </summary>
         /// <remarks>
@@ -348,15 +213,6 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_National_Number_Input;
 
         /// <summary>
-        /// account_Personal_Picture_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_Personal_Picture_label;
-
-        /// <summary>
         /// account_Personal_Picture_Input control.
         /// </summary>
         /// <remarks>
@@ -364,15 +220,6 @@ namespace MASTER.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload account_Personal_Picture_Input;
-
-        /// <summary>
-        /// account_CV_file_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account_CV_file_label;
 
         /// <summary>
         /// account_CV_file_Input control.

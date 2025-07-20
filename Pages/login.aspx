@@ -8,7 +8,7 @@
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link href="../CSS/login.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS/Login/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="login-form">

@@ -1,0 +1,52 @@
+﻿/*
+    **Note** 
+    ALL NAMES OF CLASSES AND IDS ARE CASE SENSITIVE AND IMPORTANT TO FOLLOW AS IS....
+
+    to use this component you need a layout like this :
+
+        <div class="animated-input-group">
+            <input class="animated-input" id="account_First_Name_Input" autocomplete="off" placeholder="" /> //can use asp:textbox if you give it the same class
+            <label class="animated-label" for="account_First_Name_Input">your label</label>
+        </div>
+
+*/
+
+.animated-input-group {
+    position: relative;
+    width: 100%;
+}
+
+.animated-input {
+    width: 100%;
+    border: solid 1.5px rgb(255, 106, 0);
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.animated-label {
+    position: absolute;
+    left: 15px;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.animated-input:focus, .animated-input:valid {
+    outline: none;
+    border: 1.5px solid rgb(255, 106, 0);
+}
+
+.animated-input:focus ~ .animated-label,
+.animated-input:hover ~ .animated-label,
+.animated-input:not(:placeholder-shown) ~ .animated-label {
+    transform: translateY(-50%) scale(0.8);
+    padding: 0 .2em;
+    background-color: white;
+}
+
+.animated-input:invalid ~ .animated-label {
+    color: red;
+}

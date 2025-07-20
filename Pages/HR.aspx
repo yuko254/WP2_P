@@ -1,29 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="HR.aspx.cs" Inherits="MASTER.Pages.HR" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../CSS/HR.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS/HR/HR.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS/HR/HRLoaded.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="SidebarMenu" runat="server">
-    <div class="sidebar-top menu">
+    <div class="sidebar-top sidebar-menu">
         <h1>hahahaha</h1>
     </div>
-    <div class="menu">
-        <div class="menu-option">
-            <i class="fa fa-home button-icon"></i>
-            <p class="button-box nav-option-clicked" id="1">Create new account</p>
+    <div class="sidebar-menu">
+        <div class="sidebar-menu-option">
+            <i class="fa fa-home sidebar-menu-option-icon"></i>
+            <p class="sidebar-menu-option-btn sidebar-menu-option-clicked" id="1">Option 1</p>
         </div>
-        <div class="menu-option">
-            <i class="fa fa-bars button-icon"></i>
-            <p class="button-box" id="2">add personal info</p>
+        <div class="sidebar-menu-option">
+            <i class="fa fa-home sidebar-menu-option-icon"></i>
+            <p class="sidebar-menu-option-btn" id="2">Option 2</p>
         </div>
-        <div class="menu-option">
-            <i class="fa fa-male button-icon"></i>
-            <p class="button-box" id="3">Profile</p>
-        </div>
-        <div class="menu-option">
-            <i class="fa fa-trash button-icon"></i>
-            <p class="button-box" id="4">Profile</p>
+        <div class="sidebar-menu-option">
+            <i class="fa fa-home sidebar-menu-option-icon"></i>
+            <p class="sidebar-menu-option-btn" id="3">Option 3</p>
         </div>
     </div>
 </asp:Content>
@@ -33,16 +30,25 @@
         <div class="row">
             <fieldset class="container UserAccount">
                 <legend class="legend-flex">Register a new user account</legend>
-                <asp:Label ID="account_Username_label" runat="server" Text="Username : "></asp:Label>
-                <asp:TextBox ID="account_Username_Input" runat="server" required="required" placeholder="Enter username."></asp:TextBox>
+
+                <div class="animated-input-group">
+                    <asp:TextBox CssClass="animated-input" ID="account_Username_Input" runat="server" required="required" autocomplete="off" placeholder=""></asp:TextBox>
+                    <label class="animated-label" for="account_Username_Input">Username</label>
+                </div>
                 <br />
-                <asp:Label ID="account_Email_label" runat="server" Text="Email : "></asp:Label>
-                <asp:TextBox ID="account_Email_Input" runat="server" required="required" placeholder="Enter email." TextMode="Email"></asp:TextBox>
+
+                <div class="animated-input-group">
+                    <asp:TextBox CssClass="animated-input" ID="account_Email_Input" runat="server" required="required" autocomplete="off" TextMode="Email" placeholder=""></asp:TextBox>
+                    <label class="animated-label" for="account_Email_Input">Email</label>
+                </div>
                 <br />
-                <asp:Label ID="account_Pass_label" runat="server" Text="Password : "></asp:Label>
-                <asp:TextBox ID="account_Pass_Input" runat="server" required="required" TextMode="Password" placeholder="Enter password."></asp:TextBox>
-                <asp:Button CssClass="btn" ID="account_RandPass_Btn" runat="server" Text="generate random password" UseSubmitBehavior="false" OnClientClick="generate_password(); return false;" />
-                <br />
+
+                <div class="animated-input-group">
+                    <asp:TextBox CssClass="animated-input" ID="account_Pass_Input" runat="server" required="required" autocomplete="off" TextMode="Password" placeholder=""></asp:TextBox>
+                    <label class="animated-label" for="account_Pass_Input">Password</label>
+                </div>
+
+                <asp:Button CssClass="btn" ID="account_RandPass_Btn" runat="server" Text="generate random password" UseSubmitBehavior="false" OnClientClick="generate_password(); return false;" /><br />
             </fieldset>
 
             <fieldset class="container UserPosition">
@@ -50,22 +56,16 @@
                     <span>Assign position?</span>
                     <asp:CheckBox ID="Assign_position_check" CssClass="legend-checkbox" runat="server" />
                 </legend>
-                <asp:Label ID="account_Dept_label" runat="server" Text="Department : "></asp:Label>
-                <asp:DropDownList ID="account_Dept_DDL" runat="server" DataSourceID="get_departments" DataTextField="Dept_Code" DataValueField="Dept_ID" AppendDataBoundItems="true">
-                    <asp:ListItem Text="Choose Department" Value="" />
-                </asp:DropDownList>
+
+                <asp:DropDownList ID="account_Dept_DDL" runat="server" DataSourceID="get_departments" DataTextField="Dept_Code" DataValueField="Dept_ID" />
                 <asp:SqlDataSource ID="get_departments" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Dept_ID], [Dept_Code] FROM [Departments]"></asp:SqlDataSource>
                 <br />
-                <asp:Label ID="account_Role_label" runat="server" Text="Role :"></asp:Label>
-                <asp:DropDownList ID="account_Role_DDL" runat="server" DataSourceID="get_roles" DataTextField="Role_Name" DataValueField="Role_ID" AppendDataBoundItems="true">
-                    <asp:ListItem Text="Choose Role" Value="" />
-                </asp:DropDownList>
+
+                <asp:DropDownList ID="account_Role_DDL" runat="server" DataSourceID="get_roles" DataTextField="Role_Name" DataValueField="Role_ID" />
                 <asp:SqlDataSource ID="get_roles" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Role_ID], [Role_Name] FROM [Roles]"></asp:SqlDataSource>
                 <br />
-                <asp:Label ID="account_Branch_label" runat="server" Text="Branch :"></asp:Label>
-                <asp:DropDownList ID="account_Branch_DDL" runat="server" DataSourceID="get_branches" DataTextField="Branch_Name" DataValueField="Branch_ID" AppendDataBoundItems="True">
-                    <asp:ListItem Text="Choose Branch" Value="" />
-                </asp:DropDownList>
+
+                <asp:DropDownList ID="account_Branch_DDL" runat="server" DataSourceID="get_branches" DataTextField="Branch_Name" DataValueField="Branch_ID" />
                 <asp:SqlDataSource ID="get_branches" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Branch_Name], [Branch_ID] FROM [Branch_Companies]"></asp:SqlDataSource>
                 <br />
             </fieldset>
@@ -76,39 +76,74 @@
                 <span>Add personal info?</span>
                 <asp:CheckBox ID="Assign_PI_check" CssClass="legend-checkbox" runat="server" />
             </legend>
-                <asp:Label ID="account_First_Name_label" runat="server" Text="First Name:" />
-                <asp:TextBox ID="account_First_Name_Input" runat="server" placeholder="Enter first name" /><br />
 
-                <asp:Label ID="account_Last_Name_label" runat="server" Text="Last Name:" />
-                <asp:TextBox ID="account_Last_Name_Input" runat="server" placeholder="Enter last name" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_First_Name_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_First_Name_Input">First Name</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Phone_Number_label" runat="server" Text="Phone number:" />
-                <asp:TextBox ID="account_Phone_Number_Input" runat="server" placeholder="Enter phone number" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Last_Name_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Last_Name_Input">Last Name</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Address_label" runat="server" Text="Address:" />
-                <asp:TextBox ID="account_Address_Input" runat="server" placeholder="Enter address" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Phone_Number_Input" runat="server" autocomplete="off" TextMode="Phone" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Phone_Number_Input">Phone number</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Father_First_Name_label" runat="server" Text="Father's First Name:" />
-                <asp:TextBox ID="account_Father_First_Name_Input" runat="server" placeholder="Enter father's first name" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Address_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Address_Input">Address</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Mother_First_Name_label" runat="server" Text="Mother's Full Name:" />
-                <asp:TextBox ID="account_Mother_First_Name_Input" runat="server" placeholder="Enter mother's full name" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Father_First_Name_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Father_First_Name_Input">Father's First Name</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Place_of_Birth_label" runat="server" Text="Place of Birth:" />
-                <asp:TextBox ID="account_Place_of_Birth_Input" runat="server" placeholder="Enter place of birth" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Mother_First_Name_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Mother_First_Name_Input">Mother's Full Name</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Date_of_Birth_label" runat="server" Text="Date of Birth:" />
-                <asp:TextBox ID="account_Date_of_Birth_Input" runat="server" TextMode="Date" placeholder="Enter date of birth" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Place_of_Birth_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Place_of_Birth_Input">Place of Birth</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_National_Number_label" runat="server" Text="National Number:" />
-                <asp:TextBox ID="account_National_Number_Input" runat="server" TextMode="Number" placeholder="Enter national number" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_Date_of_Birth_Input" runat="server" TextMode="Date" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Date_of_Birth_Input">Date of Birth</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_Personal_Picture_label" runat="server" Text="Personal Picture:" />
-                <asp:FileUpload ID="account_Personal_Picture_Input" runat="server" placeholder="Enter personal picture" /><br />
+            <div class="animated-input-group">
+                <asp:TextBox CssClass="animated-input" ID="account_National_Number_Input" runat="server" TextMode="Number" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_National_Number_Input">National Number</label>
+            </div>
+            <br />
 
-                <asp:Label ID="account_CV_file_label" runat="server" Text="CV File:" />
-                <asp:FileUpload ID="account_CV_file_Input" runat="server" placeholder="Enter CV file" />
+            <div class="animated-input-group">
+                <asp:FileUpload CssClass="animated-input" ID="account_Personal_Picture_Input" runat="server" autocomplete="off" placeholder=""></asp:FileUpload>
+                <label class="animated-label" for="account_Personal_Picture_Input">Personal Picture</label>
+            </div>
+            <br />
+
+            <div class="animated-input-group">
+                <asp:FileUpload CssClass="animated-input" ID="account_CV_file_Input" runat="server" autocomplete="off" placeholder=""></asp:FileUpload>
+                <label class="animated-label" for="account_CV_file_Input">CV File</label>
+            </div>
+            <br />
         </fieldset>
+
         <div class="FormButtuns">
             <asp:Button CssClass="btn" ID="Submit_CreateAccount" runat="server" Text="Submit" OnClick="Submit_CreateAccount_Click" />
             <asp:Button CssClass="btn" ID="Cancel_CreateAccount" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClientClick="clearForm(); return false;" />
@@ -126,84 +161,34 @@
             RandPass.value = arr.join('');
         };
 
-        // Dynamic unfolding select-lists
-        function populateCustomDDL(sourceDDL, targetDDL) {
-            const trigger = targetDDL.querySelector(".dropdown-trigger");
-            const optionsList = targetDDL.querySelector(".dropdown-options");
+        // custom form border color change on input/ineraction
+        document.querySelectorAll(".animated-input, select").forEach(input => {
+            const container = input.closest(".container");
 
-            Array.from(sourceDDL.options).forEach(opt => {
-                const li = document.createElement("li");
-                li.textContent = opt.text;
-                li.dataset.value = opt.value;
-
-                li.addEventListener("click", () => {
-                    trigger.textContent = opt.text + " ▼";
-                    sourceDDL.value = opt.value;
-                    targetDDL.style.pointerEvents = "none";
-                    setTimeout(() => {
-                        targetDDL.style.pointerEvents = "auto";
-                    }, 500);
-                });
-
-                optionsList.appendChild(li);
-            });
-        };
-        window.addEventListener("DOMContentLoaded", () => {
-            const sourceDDLs = Array.from(document.querySelectorAll(".main-content *")).filter(el => /DDL$/.test(el.id));
-            sourceDDLs.forEach(sourceDDL => {
-                sourceDDL.style.display = "none";
-
-                const customWrapper = document.createElement("div");
-                customWrapper.classList.add("custom-dropdown");
-
-                const trigger = document.createElement("div");
-                trigger.classList.add("dropdown-trigger");
-                trigger.textContent = "Choose option ▼";
-
-                const optionsList = document.createElement("ul");
-                optionsList.classList.add("dropdown-options");
-
-                customWrapper.appendChild(trigger);
-                customWrapper.appendChild(optionsList);
-
-                sourceDDL.parentNode.insertBefore(customWrapper, sourceDDL.nextSibling);
-
-                populateCustomDDL(sourceDDL, customWrapper);
-            });
-        });
-
-        // toggling input fields
-        function toggleFieldsetState(checkbox, fieldset) {
-            const disabled = !checkbox.checked;
-            fieldset.classList.toggle("fieldset-disabled", disabled);
-            fieldset.classList.toggle("folded", disabled);
-
-            if (!disabled) {
-                setTimeout(() => {
-                    fieldset.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 300); // Wait for animation to begin
-            }
-            Array.from(fieldset.querySelectorAll("input, select, textarea, button")).forEach(el => {
-                if (el !== checkbox) {
-                    el.disabled = disabled;
+            const updateContainerState = () => {
+                if (document.activeElement === input || input.value.trim() !== "") {
+                    container.style.borderColor = "rgb(255, 106, 0)";
+                } else {
+                    container.style.borderColor = "#ccc"; // fallback to default
                 }
-            });
-            fieldset.querySelectorAll(".custom-dropdown").forEach(dropdown => {
-                dropdown.classList.toggle("disabled", disabled);
-            });
-        };
+            };
+
+            input.addEventListener("change", updateContainerState);
+            input.addEventListener("focus", updateContainerState);
+            input.addEventListener("blur", updateContainerState);
+            input.addEventListener("input", updateContainerState);
+        });
+    </script>
+    <script src="/Components/AnimatedDDL/replaceDDLsWithAnimatedDDLs.js"></script>
+    <script src="/JS/toggleForms.js"></script>
+    <script>
+        // toggling input fields
         document.querySelectorAll("legend input").forEach(el => {
             const fieldset = el.closest("fieldset");
-            el.addEventListener("change", () => toggleFieldsetState(el, fieldset));
-        });
-        window.addEventListener("DOMContentLoaded", () => {
-            const UserPositionCheck = document.querySelector('.UserPosition legend input');
-            const UserPosition = UserPositionCheck.closest("fieldset");
-            const UserPICheck = document.querySelector('.UserPI legend input');
-            const UserPI = UserPICheck.closest("fieldset");
+            const isUserPI = fieldset.classList.contains("UserPI");
 
-            toggleFieldsetState(UserPositionCheck, UserPosition);
-            toggleFieldsetState(UserPICheck, UserPI);
+            toggleFormState(el, fieldset, isUserPI, ".custom-dropdowns");
+            el.addEventListener("change", () => toggleFormState(el, fieldset, isUserPI, ".custom-dropdowns"));
         });
     </script>
 </asp:Content>

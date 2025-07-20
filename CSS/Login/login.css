@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url(6.jpg);
+    background: url(../6.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: auto;

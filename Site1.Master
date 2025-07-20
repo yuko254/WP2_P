@@ -1,11 +1,13 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="MASTER.Site1" %>
 
 <!DOCTYPE html>
-
-<html>
+<html runat="server">
 <head runat="server">
     <title></title>
-    <link href="CSS/master.css" rel="stylesheet" type="text/css" />
+    <link href="/Components/AnimatedDDL/AnimatedDDL.css" rel="stylesheet" type="text/css" />
+    <link href="/Components/animated_input.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS/Master/Master.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS/Master/MasterLoaded.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
@@ -14,65 +16,20 @@
         <nav class="sidebar">
             <asp:ContentPlaceHolder ID="SidebarMenu" runat="server" />
         </nav>
-        <script>
-            let nav_options = document.querySelectorAll(".button-box");
-            var clicked_option = document.querySelector(".button-box.nav-option-clicked")
-            nav_options.forEach(option => {
-                option.addEventListener("click", event => {
-                    if (clicked_option)
-                        clicked_option.classList.remove("nav-option-clicked");
-                    clicked_option = event.target;
-                    clicked_option.classList.add("nav-option-clicked");
-
-                    // trigger a custom event
-                    document.dispatchEvent(new CustomEvent("NavOptionClicked", {
-                        detail: { id: window.clicked_option.id }
-                    }));
-                });
-            });
-        </script>
         <div class="main-content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
         </div>
     </form>
-    <script>  
-        window.onload = function handleload() {
-            document.querySelector(".main-content").classList.add("loaded");
-            document.querySelector(".sidebar").classList.add("loaded");
-            document.querySelector(".sidebar-top").classList.add("loaded");
-
-            let options = document.querySelectorAll(".menu-option");
-            options.forEach((option, index) => {
-                setTimeout(() => {
-                    option.classList.add("loaded");
-                }, 500 + index * 100);
-            });
-        };
-
+    <script src="/JS/MasterLoad.js"></script>
+    <script src="/JS/SidebarHandling.js"></script>
+    <script>
         function clearForm() {
             document.querySelector("#form1").reset();
-            document.querySelectorAll("legend input").forEach(el => {
+            document.querySelectorAll("input, select, li").forEach(el => {
                 el.dispatchEvent(new Event("change"));
+                el.dispatchEvent(new CustomEvent("click", { detail: { canceled: true } }));
             });
         };
-
-        const panelElements = Array.from(document.querySelectorAll('.main-content *'))
-            .filter(el => /pnl\d+$/.test(el.id)) // Match IDs ending in pnl followed by digits
-            .sort((a, b) => {
-                const numA = parseInt(a.id.match(/pnl(\d+)$/)[1]); // extract number after 'pnl'
-                const numB = parseInt(b.id.match(/pnl(\d+)$/)[1]);
-                return numA - numB;
-            });
-        document.addEventListener("NavOptionClicked", e => {
-            const id = e.detail.id;
-            panelElements.forEach(panel => {
-                if (panel) {
-                    panel.style.display = 'none';
-                }
-            });
-            if (panelElements[id - 1])
-                panelElements[id - 1].style.display = 'block';
-        });
     </script>
 </body>
 </html>
