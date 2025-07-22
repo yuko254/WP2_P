@@ -18,6 +18,27 @@
     transition-delay: 1s;
 }
 
+fieldset {
+    all: unset;
+    display: contents;
+    transition: color 0.3s ease;
+}
+.legend-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0 0.8em;
+    background-color: #fff;
+}
+.legend-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer !important;
+}
+
 .UserPI{
     margin: 0 5%;
 }
@@ -37,27 +58,6 @@
     opacity: 1;
 }
 
-fieldset {
-    all: unset;
-    display: contents;
-    transition: color 0.3s ease;
-}
-.legend-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 0 0.8em;
-    background-color: #fff;
-}
-.legend-checkbox input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
 .btn {
     padding: 0 5%;
     margin: 1%;
@@ -71,7 +71,7 @@ fieldset {
     border-radius: 40px;
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
+    cursor: pointer !important;
     transition: transform 80ms;
     transition: box-shadow 0.5s;
     color: orange;
@@ -97,7 +97,7 @@ button:active {
 
 .form-disabled {
     color: rgb(0, 0, 0);
-    cursor: not-allowed;
+    cursor: not-allowed !important;
 }
 .form-disabled legend {
     color: rgb(255, 0, 0);
@@ -115,5 +115,5 @@ button:active {
 .form-disabled textarea,
 .form-disabled button {
     filter: grayscale(60%);
-    pointer-events: none;
+    pointer-events: none !important;
 }

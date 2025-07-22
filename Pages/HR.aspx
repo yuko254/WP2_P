@@ -150,7 +150,9 @@
         </div>
     </asp:Panel>
 
-    <asp:Panel ID="pnl2" runat="server" Style="display: none;"></asp:Panel>
+    <asp:Panel ID="pnl2" runat="server" Style="display: none;">
+        <h1>SSSSS</h1>
+    </asp:Panel>
 
     <script>
         // Random password generating
@@ -179,8 +181,8 @@
             input.addEventListener("input", updateContainerState);
         });
     </script>
-    <script src="/Components/AnimatedDDL/replaceDDLsWithAnimatedDDLs.js"></script>
-    <script src="/JS/toggleForms.js"></script>
+    <script src="/Components/AnimatedDDL/AnimatedDDL.js"></script>
+    <script src="/Components/toggleForms.js"></script>
     <script>
         // toggling input fields
         document.querySelectorAll("legend input").forEach(el => {
