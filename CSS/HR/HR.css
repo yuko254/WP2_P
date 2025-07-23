@@ -20,8 +20,9 @@
 
 fieldset {
     all: unset;
-    display: contents;
-    transition: color 0.3s ease;
+    display: block;
+    position: relative;
+    z-index: 0;
 }
 .legend-flex {
     display: flex;
@@ -31,7 +32,7 @@ fieldset {
     font-size: 1.5em;
     font-weight: bold;
     padding: 0 0.8em;
-    background-color: #fff;
+    z-index: 0;
 }
 .legend-checkbox input[type="checkbox"] {
     width: 20px;
@@ -39,16 +40,17 @@ fieldset {
     cursor: pointer !important;
 }
 
-.UserPI{
+.UserPI {
     margin: 0 5%;
+    position: relative;
+    z-index: 1;
 }
 .UserPI, .UserPI.folded legend ~ * {
     overflow: hidden;
-    transition: max-height 1s ease, opacity 1s ease;
 }
 .UserPI.folded {
     max-height: 1em;
-    opacity: 1;
+    opacity: 0;
 }
 .UserPI.folded legend ~ * {
     opacity: 0;     
@@ -72,15 +74,14 @@ fieldset {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer !important;
-    transition: transform 80ms;
-    transition: box-shadow 0.5s;
+    transition: box-shadow 0.5s, transform 80ms;
     color: orange;
 }
 .btn:hover {
     box-shadow: 0 0 10px rgb(255, 106, 0);
 }
-button:active {
-    transform: scale(1.1);
+.btn:active {
+    transform: scale(0.9);
 }
 
 .pnl{
@@ -97,6 +98,9 @@ button:active {
 
 .form-disabled {
     color: rgb(0, 0, 0);
+    cursor: not-allowed !important;
+}
+.form-disabled * {
     cursor: not-allowed !important;
 }
 .form-disabled legend {

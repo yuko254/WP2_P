@@ -9,30 +9,33 @@
     - Scrolls unfolded form into view if foldingForm is true
 
     usage example :
-        <script src="/JS/toggleForms.js"></script>
+        <script src="/Components/toggleForms.js"></script>
         <script>
             // toggling input fields
-            document.querySelectorAll("legend input").forEach(checkbox => {
-                const form = el.closest("fieldset");
-                const isFoldingForm = fieldset.classList.contains("UserPI");
-
-                toggleFormState(checkbox, form, isFoldingForm, ".custom-dropdowns");
-                el.addEventListener("change", () => toggleFormState(checkbox, form, isFoldingForm, ".custom-dropdowns"));
-            });
+            document.querySelectorAll("toggle-element").forEach(el => {
+                const form = el.closest(".form-field"); // similar to queryselector, it retrieves the colosest parent element in acccording to the query
+                const isFoldingForm = form.classList.contains("FoldingForm");
+                const isCustomForm = form.classList.contains("CustomForm");
+                if (isCustomForm) {
+                    form.disable = () => disableDDLs(form); // you can use this to retrieve the element and do element.disable() because form's default reset() wont effect a custom form
+                    form.toggle = () => toggleDDLs(form);
+                }
+                toggleFormState(el, form, isFoldingForm, isCustomForm);
+                el.addEventListener("change", () => toggleFormState(el, form, isFoldingForm, isCustomForm));
+            });        
         </script>
 
  */
 
 
-function toggleFormState(checkbox, form, foldingForm = false, customToggle) {
+function toggleFormState(checkbox, form, foldingForm = false, customForm = false) {
+    form.dispatchEvent(new CustomEvent("toggled!"));
     const disabled = !checkbox.checked;
     form.classList.toggle("form-disabled", disabled);
     if (foldingForm)
         form.classList.toggle("folded", disabled);
-    if (customToggle)
-        form.querySelectorAll(customToggle).forEach(dropdown => {
-            dropdown.classList.toggle("disabled", disabled);
-        });
+    if (customForm)
+        form.toggle();
 
     let scrollTimeout;
     if (!disabled && foldingForm) {

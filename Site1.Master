@@ -25,10 +25,6 @@
     <script>
         function clearForm() {
             document.querySelector("#form1").reset();
-            document.querySelectorAll("input, select, li").forEach(el => {
-                el.dispatchEvent(new Event("change"));
-                el.dispatchEvent(new CustomEvent("click", { detail: { canceled: true } }));
-            });
         };
     </script>
 </body>

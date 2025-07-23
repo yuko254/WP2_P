@@ -1,9 +1,4 @@
-﻿.dom-loaded * {
-    cursor: auto;
-    pointer-events: auto;
-}
-
-.sidebar.loaded {
+﻿.sidebar.loaded {
     flex: 0.25;
 }
 .sidebar.loaded::before {

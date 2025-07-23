@@ -57,15 +57,15 @@
                     <asp:CheckBox ID="Assign_position_check" CssClass="legend-checkbox" runat="server" />
                 </legend>
 
-                <asp:DropDownList ID="account_Dept_DDL" runat="server" DataSourceID="get_departments" DataTextField="Dept_Code" DataValueField="Dept_ID" />
+                <asp:DropDownList ID="account_Dept_DDL" data-name="Department" runat="server" DataSourceID="get_departments" DataTextField="Dept_Code" DataValueField="Dept_ID" />
                 <asp:SqlDataSource ID="get_departments" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Dept_ID], [Dept_Code] FROM [Departments]"></asp:SqlDataSource>
                 <br />
 
-                <asp:DropDownList ID="account_Role_DDL" runat="server" DataSourceID="get_roles" DataTextField="Role_Name" DataValueField="Role_ID" />
+                <asp:DropDownList ID="account_Role_DDL" data-name="Role" runat="server" DataSourceID="get_roles" DataTextField="Role_Name" DataValueField="Role_ID" />
                 <asp:SqlDataSource ID="get_roles" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Role_ID], [Role_Name] FROM [Roles]"></asp:SqlDataSource>
                 <br />
 
-                <asp:DropDownList ID="account_Branch_DDL" runat="server" DataSourceID="get_branches" DataTextField="Branch_Name" DataValueField="Branch_ID" />
+                <asp:DropDownList ID="account_Branch_DDL" data-name="Branch" runat="server" DataSourceID="get_branches" DataTextField="Branch_Name" DataValueField="Branch_ID" />
                 <asp:SqlDataSource ID="get_branches" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Branch_Name], [Branch_ID] FROM [Branch_Companies]"></asp:SqlDataSource>
                 <br />
             </fieldset>
@@ -175,22 +175,50 @@
                 }
             };
 
+            container.addEventListener("toggled!", updateContainerState);
             input.addEventListener("change", updateContainerState);
             input.addEventListener("focus", updateContainerState);
             input.addEventListener("blur", updateContainerState);
             input.addEventListener("input", updateContainerState);
         });
+
     </script>
     <script src="/Components/AnimatedDDL/AnimatedDDL.js"></script>
     <script src="/Components/toggleForms.js"></script>
     <script>
-        // toggling input fields
-        document.querySelectorAll("legend input").forEach(el => {
-            const fieldset = el.closest("fieldset");
-            const isUserPI = fieldset.classList.contains("UserPI");
+        window.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.querySelectorAll(".UserPI, .UserPI.folded legend ~ *").forEach(el => {
+                    el.style.transition = "max-height 1s ease 0s, transform 0.5s ease-out 1s, opacity 0.5s ease 0s";
+                });
+            }, 2000);
 
-            toggleFormState(el, fieldset, isUserPI, ".custom-dropdowns");
-            el.addEventListener("change", () => toggleFormState(el, fieldset, isUserPI, ".custom-dropdowns"));
+            // toggling input fields
+            document.querySelectorAll("legend input").forEach(el => {
+                const fieldset = el.closest("fieldset");
+                const isUserPI = fieldset.classList.contains("UserPI");
+                const isUserPosition = fieldset.classList.contains("UserPosition");
+                if (isUserPosition) {
+                    fieldset.disable = () => disableDDLs(fieldset);
+                    fieldset.toggle = () => toggleDDLs(fieldset);
+                }
+                toggleFormState(el, fieldset, isUserPI, isUserPosition);
+                el.addEventListener("change", () => toggleFormState(el, fieldset, isUserPI, isUserPosition));
+            });
+
+            const cancelBtn = [...document.querySelectorAll('[id]')]
+                .find(el => el.id.endsWith('Cancel_CreateAccount'));
+
+            cancelBtn?.addEventListener("click", () => {
+                document.querySelectorAll("legend input").forEach(input => {
+                    const fieldset = input.closest("fieldset");
+                    const isUserPosition = fieldset.classList.contains("UserPosition");
+                    if (isUserPosition)
+                        fieldset.disable();
+                    else
+                        input.dispatchEvent(new Event("change"));
+                });
+            });
         });
     </script>
 </asp:Content>
