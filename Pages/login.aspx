@@ -28,7 +28,7 @@
             <div class="link">
                 <a href="#" id="forgot-password-link">Forgot password?</a>
             </div>
-            <asp:Button CssClass="btn" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+            <asp:Button CssClass="btn" ID="LoginBTN" runat="server" Text="Login" OnClick="LoginBTN_Click" />
         </form>
     </div>
 </body>

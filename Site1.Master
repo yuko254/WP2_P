@@ -12,6 +12,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
 <body>
+    <script src="/JS/Master.js" ></script>
     <form id="form1" runat="server">
         <nav class="sidebar">
             <asp:ContentPlaceHolder ID="SidebarMenu" runat="server" />
@@ -22,10 +23,5 @@
     </form>
     <script src="/JS/MasterLoad.js"></script>
     <script src="/JS/SidebarHandling.js"></script>
-    <script>
-        function clearForm() {
-            document.querySelector("#form1").reset();
-        };
-    </script>
 </body>
 </html>

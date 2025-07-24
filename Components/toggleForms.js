@@ -31,11 +31,14 @@
 function toggleFormState(checkbox, form, foldingForm = false, customForm = false) {
     form.dispatchEvent(new CustomEvent("toggled!"));
     const disabled = !checkbox.checked;
+    if (disabled) {
+        checkbox.checked = false;
+    }
     form.classList.toggle("form-disabled", disabled);
     if (foldingForm)
         form.classList.toggle("folded", disabled);
     if (customForm)
-        form.toggle();
+        form.toggle(disabled);
 
     let scrollTimeout;
     if (!disabled && foldingForm) {

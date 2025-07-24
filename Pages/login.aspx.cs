@@ -32,12 +32,12 @@ namespace MASTER
         private Dictionary<string, object> GetUserDashboard(string id, SqlConnection conn)
         {
             string query = @"
-        SELECT D.Dept_Code, R.Role_Name
-        FROM Users U
-        JOIN Personal_Informations PI ON U.User_ID = PI.PI_ID
-        JOIN Departments D ON PI.Dept_ID = D.Dept_ID
-        JOIN Roles R ON PI.Role_ID = R.Role_ID
-        WHERE U.User_ID = @id";
+                            SELECT D.Dept_Code, R.Role_Name
+                            FROM Users U
+                            JOIN Personal_Informations PI ON U.User_ID = PI.PI_ID
+                            JOIN Departments D ON PI.Dept_ID = D.Dept_ID
+                            JOIN Roles R ON PI.Role_ID = R.Role_ID
+                            WHERE U.User_ID = @id";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -59,7 +59,7 @@ namespace MASTER
             return null;
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void LoginBTN_Click(object sender, EventArgs e)
         {
             string id = TextBox1.Text;
             string pass = TextBox2.Text;

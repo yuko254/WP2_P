@@ -57,15 +57,21 @@
                     <asp:CheckBox ID="Assign_position_check" CssClass="legend-checkbox" runat="server" />
                 </legend>
 
-                <asp:DropDownList ID="account_Dept_DDL" data-name="Department" runat="server" DataSourceID="get_departments" DataTextField="Dept_Code" DataValueField="Dept_ID" />
+                <asp:DropDownList ID="account_Dept_DDL" data-name="Department" runat="server" DataSourceID="get_departments" DataTextField="Dept_Code" DataValueField="Dept_ID" AppendDataBoundItems="true">
+                    <asp:ListItem Text="" Value="" />
+                </asp:DropDownList>
                 <asp:SqlDataSource ID="get_departments" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Dept_ID], [Dept_Code] FROM [Departments]"></asp:SqlDataSource>
                 <br />
 
-                <asp:DropDownList ID="account_Role_DDL" data-name="Role" runat="server" DataSourceID="get_roles" DataTextField="Role_Name" DataValueField="Role_ID" />
+                <asp:DropDownList ID="account_Role_DDL" data-name="Role" runat="server" DataSourceID="get_roles" DataTextField="Role_Name" DataValueField="Role_ID" AppendDataBoundItems="true">
+                    <asp:ListItem Text="" Value="" />
+                </asp:DropDownList>
                 <asp:SqlDataSource ID="get_roles" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Role_ID], [Role_Name] FROM [Roles]"></asp:SqlDataSource>
                 <br />
 
-                <asp:DropDownList ID="account_Branch_DDL" data-name="Branch" runat="server" DataSourceID="get_branches" DataTextField="Branch_Name" DataValueField="Branch_ID" />
+                <asp:DropDownList ID="account_Branch_DDL" data-name="Branch" runat="server" DataSourceID="get_branches" DataTextField="Branch_Name" DataValueField="Branch_ID" AppendDataBoundItems="true">
+                    <asp:ListItem Text="" Value="" />
+                </asp:DropDownList>
                 <asp:SqlDataSource ID="get_branches" runat="server" ConnectionString="<%$ ConnectionStrings:MyDB %>" SelectCommand="SELECT [Branch_Name], [Branch_ID] FROM [Branch_Companies]"></asp:SqlDataSource>
                 <br />
             </fieldset>
@@ -108,8 +114,8 @@
             <br />
 
             <div class="animated-input-group">
-                <asp:TextBox CssClass="animated-input" ID="account_Mother_First_Name_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
-                <label class="animated-label" for="account_Mother_First_Name_Input">Mother's Full Name</label>
+                <asp:TextBox CssClass="animated-input" ID="account_Mother_Full_Name_Input" runat="server" autocomplete="off" placeholder=""></asp:TextBox>
+                <label class="animated-label" for="account_Mother_Full_Name_Input">Mother's Full Name</label>
             </div>
             <br />
 
@@ -146,80 +152,15 @@
 
         <div class="FormButtuns">
             <asp:Button CssClass="btn" ID="Submit_CreateAccount" runat="server" Text="Submit" OnClick="Submit_CreateAccount_Click" />
-            <asp:Button CssClass="btn" ID="Cancel_CreateAccount" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClientClick="clearForm(); return false;" />
+            <asp:Button CssClass="btn" ID="Cancel_CreateAccount" runat="server" Text="Reset" UseSubmitBehavior="false" OnClientClick="return false;" />
         </div>
     </asp:Panel>
 
     <asp:Panel ID="pnl2" runat="server" Style="display: none;">
         <h1>SSSSS</h1>
     </asp:Panel>
-
-    <script>
-        // Random password generating
-        function generate_password() {
-            const RandPass = document.querySelector("#ContentPlaceHolder1_account_Pass_Input");
-            const allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            let arr = new Array(10).fill('').map(() => allowedChars[Math.floor(Math.random() * allowedChars.length)]);
-            RandPass.value = arr.join('');
-        };
-
-        // custom form border color change on input/ineraction
-        document.querySelectorAll(".animated-input, select").forEach(input => {
-            const container = input.closest(".container");
-
-            const updateContainerState = () => {
-                if (document.activeElement === input || input.value.trim() !== "") {
-                    container.style.borderColor = "rgb(255, 106, 0)";
-                } else {
-                    container.style.borderColor = "#ccc"; // fallback to default
-                }
-            };
-
-            container.addEventListener("toggled!", updateContainerState);
-            input.addEventListener("change", updateContainerState);
-            input.addEventListener("focus", updateContainerState);
-            input.addEventListener("blur", updateContainerState);
-            input.addEventListener("input", updateContainerState);
-        });
-
-    </script>
     <script src="/Components/AnimatedDDL/AnimatedDDL.js"></script>
     <script src="/Components/toggleForms.js"></script>
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                document.querySelectorAll(".UserPI, .UserPI.folded legend ~ *").forEach(el => {
-                    el.style.transition = "max-height 1s ease 0s, transform 0.5s ease-out 1s, opacity 0.5s ease 0s";
-                });
-            }, 2000);
-
-            // toggling input fields
-            document.querySelectorAll("legend input").forEach(el => {
-                const fieldset = el.closest("fieldset");
-                const isUserPI = fieldset.classList.contains("UserPI");
-                const isUserPosition = fieldset.classList.contains("UserPosition");
-                if (isUserPosition) {
-                    fieldset.disable = () => disableDDLs(fieldset);
-                    fieldset.toggle = () => toggleDDLs(fieldset);
-                }
-                toggleFormState(el, fieldset, isUserPI, isUserPosition);
-                el.addEventListener("change", () => toggleFormState(el, fieldset, isUserPI, isUserPosition));
-            });
-
-            const cancelBtn = [...document.querySelectorAll('[id]')]
-                .find(el => el.id.endsWith('Cancel_CreateAccount'));
-
-            cancelBtn?.addEventListener("click", () => {
-                document.querySelectorAll("legend input").forEach(input => {
-                    const fieldset = input.closest("fieldset");
-                    const isUserPosition = fieldset.classList.contains("UserPosition");
-                    if (isUserPosition)
-                        fieldset.disable();
-                    else
-                        input.dispatchEvent(new Event("change"));
-                });
-            });
-        });
-    </script>
+    <script src="/JS/HR.js"></script>
 </asp:Content>
 

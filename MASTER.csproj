@@ -77,6 +77,8 @@
     <Content Include="CSS\Login\login.css" />
     <Content Include="CSS\Master\Master.css" />
     <Content Include="CSS\Master\MasterLoaded.css" />
+    <Content Include="JS\HR.js" />
+    <Content Include="JS\Master.js" />
     <Content Include="JS\MasterLoad.js" />
     <Content Include="Components\AnimatedDDL\AnimatedDDL.js" />
     <Content Include="JS\SidebarHandling.js" />

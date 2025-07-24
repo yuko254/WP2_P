@@ -177,13 +177,13 @@ namespace MASTER.Pages
         protected global::System.Web.UI.WebControls.TextBox account_Father_First_Name_Input;
 
         /// <summary>
-        /// account_Mother_First_Name_Input control.
+        /// account_Mother_Full_Name_Input control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox account_Mother_First_Name_Input;
+        protected global::System.Web.UI.WebControls.TextBox account_Mother_Full_Name_Input;
 
         /// <summary>
         /// account_Place_of_Birth_Input control.

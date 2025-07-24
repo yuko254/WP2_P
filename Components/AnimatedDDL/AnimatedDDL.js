@@ -103,9 +103,9 @@ function disableDDLs(form) {
     });
 };
 
-function toggleDDLs(form) {
+function toggleDDLs(form, disabled) {
     form.querySelectorAll(".custom-dropdown").forEach(dropdown => {
-        dropdown.classList.toggle("disabled");
+        dropdown.classList.toggle("disabled", disabled);
         const trigger = dropdown.querySelector(".dropdown-trigger");
         if (trigger?.sourceDDL) {
             trigger.textContent = "";
